@@ -119,7 +119,12 @@ def new_game(event=''):
     t1.hit()
     canv.bind('<Button-1>','')
     canv.bind('<ButtonRelease-1>','')
-    canv.itemconfig(screen1,text='Вы уничтожили цель за '+str(bullet)+' выстрелов')
+    if bullet == 1:
+        canv.itemconfig(screen1,text='Вы уничтожили цель за '+str(bullet)+' выстрел')
+    if bullet < 5 and bullet > 1:
+        canv.itemconfig(screen1, text='Вы уничтожили цель за ' + str(bullet) + ' выстрела')
+    if bullet > 4:
+        canv.itemconfig(screen1, text='Вы уничтожили цель за ' + str(bullet) + ' выстрелов')
   canv.update()
   time.sleep(0.03)
   g1.targetting()
